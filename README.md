@@ -258,7 +258,7 @@ Exemplo: www.urlbase.com/superpecas001
 	],
 	"anexos": [
 		{
-			"url": "https:\/\/s3-sa-east-1.amazonaws.com\/tinylocal-testes\/erp\/MzUwMTY3MjMy\/4f6d30a1777b7d6fc294f757b470b6e0.jpeg",
+			"url": "[https://compresuapeca.vtexassets.com/arquivos/ids/14724241-1200-auto?v=638467434206700000&width=1200&height=auto&aspect=true]",
 			"nome": "441393296_headset-steelseries-arctis-3-vermelho.jpeg",
 			"tipo": "jpeg"
 		}
