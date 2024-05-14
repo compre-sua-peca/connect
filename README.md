@@ -97,7 +97,7 @@ Exemplo: www.urlbase.com/superpecas001
 | **garantia**              | 30 dias                                                                                    |
 | **cest**                  | 10.003.00                                                                                  |
 | **sobEncomenda**          | N                                                                                          |
-| **marca**                 | Tiny                                                                                       |
+| **marca**                 | mobensani                                                                                  |
 | **tipoEmbalagem**         | 2                                                                                          |
 | **alturaEmbalagem**       | 21.0                                                                                       |
 | **larguraEmbalagem**      | 26.0                                                                                       |
@@ -146,7 +146,7 @@ Exemplo: www.urlbase.com/superpecas001
 	"garantia": "30 dias",
 	"cest": "10.003.00",
 	"sobEncomenda": "N",
-	"marca": "Tiny",
+	"marca": "mobensani",
 	"tipoEmbalagem": "2",
 	"alturaEmbalagem": "21.0",
 	"larguraEmbalagem": "26.0",
