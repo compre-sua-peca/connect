@@ -47,17 +47,270 @@ Cada parte interessada é responsável por uma parte do fluxo de pedidos. Mudan�
 
 ## Documentação da API
 
-#### Retorna todos os itens
+### URL Base
+
+Vamos enviar a URL base com o email e nela vai conter o ID de seller no Marketplace
+
+Genérica: www.urlbase.com/seller_id
+
+Exemplo: www.urlbase.com/superpecas001
+
+#### Enviar Novos Produtos
 
 ```http
-  GET /api/items
+  POST /product
+
+  EX: www.urlbase.com/superpecas001/product
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
+## Product Information
 
-#### Retorna um item
+| Campo                     | Valor                                                                                      |
+|---------------------------|--------------------------------------------------------------------------------------------|
+| **id**                    | 441393295                                                                                  |
+| **idMapeamento**          | 1304432                                                                                    |
+| **skuMapeamento**         |                                                                                            |
+| **nome**                  | Exemplo de produto pai                                                                     |
+| **codigo**                | ex-pai                                                                                     |
+| **unidade**               | UN                                                                                         |
+| **preco**                 | 150.0000                                                                                   |
+| **precoPromocional**      | 120.0000                                                                                   |
+| **ncm**                   | 1001.10.10                                                                                 |
+| **origem**                | 0                                                                                          |
+| **gtin**                  | 789116565465                                                                               |
+| **gtinEmbalagem**         |                                                                                            |
+| **localizacao**           | Corredor A                                                                                 |
+| **pesoLiquido**           | 1.000                                                                                      |
+| **pesoBruto**             | 1.500                                                                                      |
+| **estoqueMinimo**         | 2.00                                                                                       |
+| **estoqueMaximo**         | 50.00                                                                                      |
+| **idFornecedor**          | 439246919                                                                                  |
+| **codigoFornecedor**      |                                                                                            |
+| **codigoPeloFornecedor**  | ex-pai-fab                                                                                 |
+| **unidadePorCaixa**       | 5                                                                                          |
+| **estoqueAtual**          | 0                                                                                          |
+| **precoCusto**            | 0.0000                                                                                     |
+| **precoCustoMedio**       | 0.0000                                                                                     |
+| **situacao**              | A                                                                                          |
+| **descricaoComplementar** | <p>Descri\u00e7\u00e3o complementar do produto</p>                                         |
+| **obs**                   | Observa\u00e7\u00f5es                                                                      |
+| **garantia**              | 30 dias                                                                                    |
+| **cest**                  | 10.003.00                                                                                  |
+| **sobEncomenda**          | N                                                                                          |
+| **marca**                 | Tiny                                                                                       |
+| **tipoEmbalagem**         | 2                                                                                          |
+| **alturaEmbalagem**       | 21.0                                                                                       |
+| **larguraEmbalagem**      | 26.0                                                                                       |
+| **comprimentoEmbalagem**  | 1.0                                                                                        |
+| **diametroEmbalagem**     | 0.0                                                                                        |
+| **classeProduto**         | V                                                                                          |
+| **idCategoria**           | 439714230                                                                                  |
+| **descricaoCategoria**    | categoria filho 1                                                                          |
+| **descricaoArvoreCategoria** | categoria pai > categoria filho 1                                                      |
+| **arvoreCategoria**       | [{"id": "439714228", "idPai": 0, "descricao": "categoria pai", "descricaoCompleta": "categoria pai"}, {"id": "439714230", "idPai": "439714228", "descricao": "categoria filho 1", "descricaoCompleta": "categoria pai > categoria filho 1"}] |
+| **variacoes**             | [{"id": "441393302", "idMapeamento": "1304433", "skuMapeamento": "", "codigo": "ex-pai-1", "gtin": "789116565465", "preco": "150.0000", "precoPromocional": "120.0000", "estoqueAtual": 0, "grade": [{"chave": "Cor", "valor": "Azul"}, {"chave": "Tamanho", "valor": "P"}], "anexos": []}, {"id": "441393310", "idMapeamento": "1304434", "skuMapeamento": "", "codigo": "ex-pai-2", "gtin": "789116565465", "preco": "150.0000", "precoPromocional": "120.0000", "estoqueAtual": 0, "grade": [{"chave": "Cor", "valor": "Azul"}, {"chave": "Tamanho", "valor": "G"}], "anexos": []}, {"id": "441393318", "idMapeamento": "1304435", "skuMapeamento": "", "codigo": "ex-pai-3", "gtin": "789116565465", "preco": "150.0000", "precoPromocional": "120.0000", "estoqueAtual": 0, "grade": [{"chave": "Cor", "valor": "Branco"}, {"chave": "Tamanho", "valor": "P"}], "anexos": []}, {"id": "441393326", "idMapeamento": "1304436", "skuMapeamento": "", "codigo": "ex-pai-4", "gtin": "789116565465", "preco": "150.0000", "precoPromocional": "120.0000", "estoqueAtual": 0, "grade": [{"chave": "Cor", "valor": "Branco"}, {"chave": "Tamanho", "valor": "G"}], "anexos": []}]  |
+| **anexos**                | [{"url": "https:\/\/s3-sa-east-1.amazonaws.com\/tinylocal-testes\/erp\/MzUwMTY3MjMy\/4f6d30a1777b7d6fc294f757b470b6e0.jpeg", "nome": "441393296_headset-steelseries-arctis-3-vermelho.jpeg", "tipo": "jpeg"}]                                                                 |
+| **seo**                   | {"title": "", "description": "", "keywords": "", "linkVideo": "", "slug": ""}                |
+| **kit**                   | [{"id": 3279328, "quantidade": 2}, {"id": 3274333, "quantidade": 5}]                       |
+| **diasPreparacao**        | 5                                                                                          |
+
+```json
+ {
+	"id": "441393295",
+	"idMapeamento": "1304432",
+	"skuMapeamento": "",
+	"nome": "Exemplo de produto pai",
+	"codigo": "ex-pai",
+	"unidade": "UN",
+	"preco": "150.0000",
+	"precoPromocional": "120.0000",
+	"ncm": "1001.10.10",
+	"origem": "0",
+	"gtin": "789116565465",
+	"gtinEmbalagem": "",
+	"localizacao": "Corredor A",
+	"pesoLiquido": "1.000",
+	"pesoBruto": "1.500",
+	"estoqueMinimo": "2.00",
+	"estoqueMaximo": "50.00",
+	"idFornecedor": "439246919",
+	"codigoFornecedor": "",
+	"codigoPeloFornecedor": "ex-pai-fab",
+	"unidadePorCaixa": "5",
+	"estoqueAtual": 0,
+	"precoCusto": "0.0000",
+	"precoCustoMedio": "0.0000",
+	"situacao": "A",
+	"descricaoComplementar": "<p>Descri\u00e7\u00e3o complementar do produto<\/p>",
+	"obs": "Observa\u00e7\u00f5es",
+	"garantia": "30 dias",
+	"cest": "10.003.00",
+	"sobEncomenda": "N",
+	"marca": "Tiny",
+	"tipoEmbalagem": "2",
+	"alturaEmbalagem": "21.0",
+	"larguraEmbalagem": "26.0",
+	"comprimentoEmbalagem": "1.0",
+	"diametroEmbalagem": "0.0",
+	"classeProduto": "V",
+	"idCategoria": "439714230",
+	"descricaoCategoria": "categoria filho 1",
+	"descricaoArvoreCategoria": "categoria pai > categoria filho 1",
+	"arvoreCategoria": [
+		{
+			"id": "439714228",
+			"idPai": 0,
+			"descricao": "categoria pai",
+			"descricaoCompleta": "categoria pai"
+		},
+		{
+			"id": "439714230",
+			"idPai": "439714228",
+			"descricao": "categoria filho 1",
+			"descricaoCompleta": "categoria pai > categoria filho 1"
+		}
+	],
+	"variacoes": [
+		{
+			"id": "441393302",
+			"idMapeamento": "1304433",
+			"skuMapeamento": "",
+			"codigo": "ex-pai-1",
+			"gtin": "789116565465",
+			"preco": "150.0000",
+			"precoPromocional": "120.0000",
+			"estoqueAtual": 0,
+			"grade": [
+				{
+					"chave": "Cor",
+					"valor": "Azul"
+				},
+				{
+					"chave": "Tamanho",
+					"valor": "P"
+				}
+			],
+			"anexos": []
+		},
+		{
+			"id": "441393310",
+			"idMapeamento": "1304434",
+			"skuMapeamento": "",
+			"codigo": "ex-pai-2",
+			"gtin": "789116565465",
+			"preco": "150.0000",
+			"precoPromocional": "120.0000",
+			"estoqueAtual": 0,
+			"grade": [
+				{
+					"chave": "Cor",
+					"valor": "Azul"
+				},
+				{
+					"chave": "Tamanho",
+					"valor": "G"
+				}
+			],
+			"anexos": []
+		},
+		{
+			"id": "441393318",
+			"idMapeamento": "1304435",
+			"skuMapeamento": "",
+			"codigo": "ex-pai-3",
+			"gtin": "789116565465",
+			"preco": "150.0000",
+			"precoPromocional": "120.0000",
+			"estoqueAtual": 0,
+			"grade": [
+				{
+					"chave": "Cor",
+					"valor": "Branco"
+				},
+				{
+					"chave": "Tamanho",
+					"valor": "P"
+				}
+			],
+			"anexos": []
+		},
+		{
+			"id": "441393326",
+			"idMapeamento": "1304436",
+			"skuMapeamento": "",
+			"codigo": "ex-pai-4",
+			"gtin": "789116565465",
+			"preco": "150.0000",
+			"precoPromocional": "120.0000",
+			"estoqueAtual": 0,
+			"grade": [
+				{
+					"chave": "Cor",
+					"valor": "Branco"
+				},
+				{
+					"chave": "Tamanho",
+					"valor": "G"
+				}
+			],
+			"anexos": []
+		}
+	],
+	"anexos": [
+		{
+			"url": "https:\/\/s3-sa-east-1.amazonaws.com\/tinylocal-testes\/erp\/MzUwMTY3MjMy\/4f6d30a1777b7d6fc294f757b470b6e0.jpeg",
+			"nome": "441393296_headset-steelseries-arctis-3-vermelho.jpeg",
+			"tipo": "jpeg"
+		}
+	],
+	"seo": {
+		"title": "",
+		"description": "",
+		"keywords": "",
+		"linkVideo": "",
+		"slug": ""
+	},
+	"kit": [
+		{
+			"id": 3279328,
+			"quantidade": 2
+		},
+		{
+			"id": 3274333,
+			"quantidade": 5
+		}
+	],
+	"diasPreparacao": "5"
+}
+```
+
+#### Retorno 
+| Status   | Descrição    |
+| :---------- |:------------------------------------------ |
+| `202`      | **Obrigatório**. O ID do item que você quer|
+
+#### Exemplo de Retorno
+
+```json
+[
+	{
+		"idMapeamento": "1304280",
+		"skuMapeamento": "exemplo-1"
+	},
+	{
+		"idMapeamento": "1304281",
+		"skuMapeamento": "exemplo-1-1",
+		"urlProduto": "https://www.lojaexemplo.com.br/produto/exemplo-1-1",
+		"urlImagem": "https://www.lojaexemplo.com.br/produto/exemplo-1-1/principal.jpg"
+	},
+	{
+		"idMapeamento": "1304282",
+		"skuMapeamento": "exemplo-1-2",
+		"error": "Produto sem marca"
+	}
+]
+```
+
 
 ```http
   GET /api/items/${id}
